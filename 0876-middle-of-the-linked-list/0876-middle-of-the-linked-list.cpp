@@ -11,21 +11,65 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
+        int size=0;
         ListNode *temp=head;
-        int n=1;
-        while(temp->next!=NULL)
+        while(temp!=NULL)
         {
             temp=temp->next;
-            n++;
+            size++;
         }
+        int mid=size/2;
         temp=head;
-        for(int i=0;i<n/2;i++)
+        for(int i=0;i<mid;i++)
         {
             temp=temp->next;
         }
-        
-        // cout<<n;
         return temp;
-        
+       
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ListNode *temp=head;
+//         int n=1;
+//         while(temp->next!=NULL)
+//         {
+//             temp=temp->next;
+//             n++;
+//         }
+//         temp=head;
+//         for(int i=0;i<n/2;i++)
+//         {
+//             temp=temp->next;
+//         }
+        
+//         // cout<<n;
+//         return temp;
+        
