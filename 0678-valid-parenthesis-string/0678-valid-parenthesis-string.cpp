@@ -8,47 +8,34 @@ using namespace std;
 class Solution {
 public:
     bool checkValidString(string s) {
-        int low = 0, high = 0;
-        for (char c : s) {
-            low += (c == '(') ? 1 : -1;
-            high += (c != ')') ? 1 : -1;
-            if (high < 0) return false;
-            low = max(low, 0);
+       int open=0;
+        int close=0;
+        int n=s.size()-1;
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]=='(' or s[i]=='*')
+            {
+                open++;
+            }
+            else
+            {
+                open--;
+            }
+            if(s[n]==')' || s[n]=='*')
+            {
+                close++;
+                cout<<"hereee"<<endl;
+            }
+            else
+            {
+                close--;
+            }
+            if(open<0 || close<0)
+            {
+                return false;
+            }
+            n--;
         }
-        return low == 0;
+        return true;
     }
 };
-
-// class Solution {
-// public:
-//     bool checkValidString(string s) {
-//         stack<char> st;
-//         for(int i=0;i<s.size();i++)
-//         {
-//             if(s[i]=='(')
-//             {
-//                 st.push(s[i]);
-//             }
-//             else if(s[i]==')')
-//             {
-//                 st.pop();
-//             }
-//         }
-//         for(int i=0;i<s.size();i++)
-//         {
-//             if(s[i]=='*' && st.empty())
-//             {
-//                 break;
-//             }
-//             else if(s[i]=='*')
-//             {
-//                 st.pop();
-//             }
-//         }
-//         if(st.empty())
-//         {
-//             return true;
-//         }
-//         return false;
-//     }
-// };
