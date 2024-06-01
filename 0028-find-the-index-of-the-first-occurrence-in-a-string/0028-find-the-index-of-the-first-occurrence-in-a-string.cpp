@@ -1,16 +1,32 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
+        // cout<<sub(haystack,3,needle.size())<<endl;
         for(int i=0;i<haystack.size();i++)
         {
+            
             // cout<<haystack.substr(i,needle.size())<<endl;
-            if(haystack.substr(i,needle.size())==needle)
+            // if(haystack.substr(i,needle.size())==needle)
+            // {
+            //     return i;
+            // }
+            if(sub(haystack,i,needle.size())==needle)
             {
                 return i;
             }
         }
         return -1;
-        
+      }
+    string sub(string s,int start,int len)
+    {
+        string res="";
+        for(int i=start;i<start+len && i<s.length();i++)
+        {
+            res+=s[i];
+        }
+        return res;
+    }
+};      
         
         
         
@@ -47,8 +63,8 @@ public:
 //         {
 //             return -1;
 //         }
-    }
-};
+//     }
+// };
 
 
 // class Solution {
