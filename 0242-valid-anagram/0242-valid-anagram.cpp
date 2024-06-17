@@ -2,19 +2,22 @@ class Solution {
 public:
     bool isAnagram(string s, string t) {
         map<char , int> mp1;
-        map<char , int> mp2;
         for(auto i:s)
         {
             mp1[i]++;
         }
         for(auto i:t)
         {
-            mp2[i]++;
+            mp1[i]--;
         }
-        if(mp1==mp2)
+        for(auto i: mp1)
         {
-            return true;
+            if(i.second!=0)
+            {
+                return false;
+            }
         }
-        return false;
+        return true;
+        
     }
 };
